@@ -2,9 +2,14 @@
 
 class StandardPriceCalculator implements TotalCalculatorInterface
 {
-    public function calculatePrice()
+    public function calculatePrice(array $items): float
     {
-        //standartinis -> praeina per visus ticketus ir sudeda ju kainą
-        return 'Standartinis kainos skaičiavimas: ' . $this->calculatePrice();
+        $sum = 0;
+        foreach ($items as $item)
+        {
+            $sum = $item->getPrice();
+        }
+        
+        return $sum;
     }
 }

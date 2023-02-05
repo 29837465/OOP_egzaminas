@@ -2,7 +2,16 @@
 
 class SubscriberPriceCalculator implements TotalCalculatorInterface
 {
-    //su subscriberio nuolaida -> praiena per visus ticketus, sudeda ju suma ir taiko  10% nuolaida
-    Return 'Su subcriberio 10% nuolaida kainos skaičiavimas: ' . $this->calculatePrice() * 0.9;
+    public function calculatePrice(array $items): float
+    {
+        $sum = 0;
+        foreach ($items as $item) 
+        {
+            $sum = $item->getPrice();
+        }
+
+        return $sum * 0.9;
+
+    }    
     
 }

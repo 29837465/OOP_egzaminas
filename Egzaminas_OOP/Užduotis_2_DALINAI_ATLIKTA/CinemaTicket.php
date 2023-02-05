@@ -2,10 +2,7 @@
 
 interface TotalCalculatorInterface
 {
-    public function calculatePrice()
-    {
-        
-    }
+
 }
 
 class CinemaTicket

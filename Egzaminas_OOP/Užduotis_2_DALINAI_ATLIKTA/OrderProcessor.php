@@ -1,33 +1,18 @@
 <?php
 
-Class OrderProcessor
+class OrderProcessor
 {
-    private float $items = CinemaTicket[
-        1 => '10 EUR',
-        2 => '14 EUR',
-        3 => '8 EUR'
-    ];
+    private $items = [];
+    private TotalCalculatorInterface $calculator;
 
-    var_dump($items);
-    public float $calculator;
-
-    public function __construct(float $calculator)
+    public function __construct(array $items, TotalCalculatorInterface $totalCalculator)
     {
-        $this->calculator = $calculator;
+        $this->items = $items;
+        $this->calculator = $totalCalculator;
     }
 
-    public function addItem (CinemaTicket $ticket)
+    public function orderPrice()
     {
-        $this->ticket = $ticket;
-    }
-
-    public function getList($items)
-    {
-        $this->items[CinemaTicket] = $item;
-    }
-
-    public function calculatePrice(): float;
-    {
-        
+        return $this->calculator->calculatePrice($this->items);
     }
 }
